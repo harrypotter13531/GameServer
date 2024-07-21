@@ -4,7 +4,8 @@
  *
  * @category GameServer
  * @package org.openpanfu.gameserver
- * @author Altro50 <altro50@msn.com>
+ * @author Princesheryar12 <sherymehmood8@gmail.com>
+ *	@property of princesheryar12's GameServer.java
  */
 
 package org.openpanfu.gameserver;
@@ -14,9 +15,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-
+// import commands file to gameserver below 
 import org.openpanfu.gameserver.commands.Commands;
 import org.openpanfu.gameserver.commands.Help;
+import org.openpanfu.gameserver.commands.Mass;
+import org.openpanfu.gameserver.commands.Action;
+import org.openpanfu.gameserver.commands.Summon;
+import org.openpanfu.gameserver.commands.Kick;
+import org.openpanfu.gameserver.commands.AlertAll;
+import org.openpanfu.gameserver.commands.AlertRoom;
 import org.openpanfu.gameserver.database.Database;
 import org.openpanfu.gameserver.database.GameServerData;
 import org.openpanfu.gameserver.database.dao.GameServerDAO;
@@ -105,6 +112,12 @@ public class GameServer {
             Logger.error("HALT! The database connection could not be initialized!");
         }
         Commands.registerCommand("help", new Help());
+        Commands.registerCommand("mass", new Mass());
+        Commands.registerCommand("action", new Action());
+        Commands.registerCommand("summon", new Summon());
+        Commands.registerCommand("kick", new Kick());
+        Commands.registerCommand("alert", new AlertAll());
+        Commands.registerCommand("roomalert", new AlertRoom());
         PluginManager.loadPlugins("plugins");
     }
 
