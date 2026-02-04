@@ -19,11 +19,14 @@ import java.util.Properties;
 import org.openpanfu.gameserver.commands.Commands;
 import org.openpanfu.gameserver.commands.Help;
 import org.openpanfu.gameserver.commands.Mass;
+import org.openpanfu.gameserver.commands.Massemote;
+import org.openpanfu.gameserver.commands.emote;
 import org.openpanfu.gameserver.commands.Action;
 import org.openpanfu.gameserver.commands.Summon;
 import org.openpanfu.gameserver.commands.Kick;
 import org.openpanfu.gameserver.commands.AlertAll;
 import org.openpanfu.gameserver.commands.AlertRoom;
+import org.openpanfu.gameserver.commands.Levelup;
 import org.openpanfu.gameserver.database.Database;
 import org.openpanfu.gameserver.database.GameServerData;
 import org.openpanfu.gameserver.database.dao.GameServerDAO;
@@ -113,11 +116,14 @@ public class GameServer {
         }
         Commands.registerCommand("help", new Help());
         Commands.registerCommand("mass", new Mass());
+		Commands.registerCommand("massemote", new Massemote());
+        Commands.registerCommand("emote", new emote());
         Commands.registerCommand("action", new Action());
         Commands.registerCommand("summon", new Summon());
         Commands.registerCommand("kick", new Kick());
         Commands.registerCommand("alert", new AlertAll());
         Commands.registerCommand("roomalert", new AlertRoom());
+		Commands.registerCommand("Levelup",  new Levelup());
         PluginManager.loadPlugins("plugins");
     }
 
